@@ -6,14 +6,14 @@
    version="1.0"
    description=""
    tags=""
-   categories="System" />
+   categories="" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element button_0
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "8";
          type = "int";
       }
       datum sopceditor_expanded
@@ -26,7 +26,7 @@
    {
       datum baseAddress
       {
-         value = "36912";
+         value = "20512";
          type = "String";
       }
    }
@@ -44,11 +44,6 @@
       {
          value = "1";
          type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
       }
    }
    element ram_0
@@ -89,37 +84,11 @@
    {
       datum baseAddress
       {
-         value = "32768";
+         value = "16384";
          type = "String";
       }
    }
-   element seven_seg_0
-   {
-      datum _sortIndex
-      {
-         value = "7";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element seven_seg_1
-   {
-      datum _sortIndex
-      {
-         value = "8";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element switch_0
+   element seven_seg_left_0
    {
       datum _sortIndex
       {
@@ -132,11 +101,53 @@
          type = "boolean";
       }
    }
+   element seven_seg_left_0.s1
+   {
+      datum baseAddress
+      {
+         value = "20544";
+         type = "String";
+      }
+   }
+   element seven_seg_right_0
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element seven_seg_right_0.s1
+   {
+      datum baseAddress
+      {
+         value = "20560";
+         type = "String";
+      }
+   }
+   element switch_0
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
    element switch_0.s1
    {
       datum baseAddress
       {
-         value = "36896";
+         value = "20528";
          type = "String";
       }
    }
@@ -157,7 +168,7 @@
    {
       datum baseAddress
       {
-         value = "36864";
+         value = "20480";
          type = "String";
       }
    }
@@ -175,33 +186,33 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="tarea1.qpf" />
+ <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
- <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
-   name="mode_external_connection"
-   internal="switch_0.external_connection"
+   name="button_0_external_connection"
+   internal="button_0.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <interface
-   name="seven_seg_0_external_connection"
-   internal="seven_seg_0.external_connection"
+   name="seven_seg_left_0_external_connection"
+   internal="seven_seg_left_0.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="seven_seg_1_external_connection"
-   internal="seven_seg_1.external_connection"
+   name="seven_seg_right_0_external_connection"
+   internal="seven_seg_right_0.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="start_external_connection"
-   internal="button_0.external_connection"
+   name="switch_0_external_connection"
+   internal="switch_0.external_connection"
    type="conduit"
    dir="end" />
  <module name="button_0" kind="altera_avalon_pio" version="20.1" enabled="1">
@@ -209,7 +220,7 @@
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
   <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
+  <parameter name="direction" value="InOut" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
   <parameter name="irqType" value="LEVEL" />
@@ -241,10 +252,10 @@
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
-  <parameter name="dataAddrWidth" value="16" />
+  <parameter name="dataAddrWidth" value="15" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x0' end='0x4002' type='altera_avalon_onchip_memory2.s1' /><slave name='timer_0.s1' start='0x9000' end='0x9020' type='altera_avalon_timer.s1' /><slave name='switch_0.s1' start='0x9020' end='0x9030' type='altera_avalon_pio.s1' /><slave name='button_0.s1' start='0x9030' end='0x9040' type='altera_avalon_pio.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x0' end='0x4000' type='altera_avalon_onchip_memory2.s1' /><slave name='timer_0.s1' start='0x5000' end='0x5020' type='altera_avalon_timer.s1' /><slave name='button_0.s1' start='0x5020' end='0x5030' type='altera_avalon_pio.s1' /><slave name='switch_0.s1' start='0x5030' end='0x5040' type='altera_avalon_pio.s1' /><slave name='seven_seg_left_0.s1' start='0x5040' end='0x5050' type='altera_avalon_pio.s1' /><slave name='seven_seg_right_0.s1' start='0x5050' end='0x5060' type='altera_avalon_pio.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -282,8 +293,8 @@
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="impl" value="Tiny" />
-  <parameter name="instAddrWidth" value="16" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='rom_0.s1' start='0x8000' end='0x9000' type='altera_avalon_onchip_memory2.s1' /></address-map>]]></parameter>
+  <parameter name="instAddrWidth" value="15" />
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='rom_0.s1' start='0x4000' end='0x5000' type='altera_avalon_onchip_memory2.s1' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="instructionMasterHighPerformanceMapParam" value="" />
   <parameter name="instruction_master_high_performance_paddr_base" value="0" />
@@ -422,7 +433,7 @@
   <parameter name="initMemContent" value="true" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="16386" />
+  <parameter name="memorySize" value="16384" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
   <parameter name="resetrequest_enabled" value="true" />
   <parameter name="simAllowMRAMContentsFile" value="false" />
@@ -467,7 +478,7 @@
   <parameter name="writable" value="false" />
  </module>
  <module
-   name="seven_seg_0"
+   name="seven_seg_left_0"
    kind="altera_avalon_pio"
    version="20.1"
    enabled="1">
@@ -485,7 +496,7 @@
   <parameter name="width" value="21" />
  </module>
  <module
-   name="seven_seg_1"
+   name="seven_seg_right_0"
    kind="altera_avalon_pio"
    version="20.1"
    enabled="1">
@@ -535,16 +546,25 @@
  </connection>
  <connection kind="avalon" version="20.1" start="cpu.data_master" end="timer_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x9000" />
+  <parameter name="baseAddress" value="0x5000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="20.1"
    start="cpu.data_master"
-   end="button_0.s1">
+   end="seven_seg_right_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x9030" />
+  <parameter name="baseAddress" value="0x5050" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="cpu.data_master"
+   end="seven_seg_left_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x5040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -553,7 +573,16 @@
    start="cpu.data_master"
    end="switch_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x9020" />
+  <parameter name="baseAddress" value="0x5030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="cpu.data_master"
+   end="button_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x5020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -562,15 +591,23 @@
    start="cpu.instruction_master"
    end="rom_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x8000" />
+  <parameter name="baseAddress" value="0x4000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="20.1" start="clk_0.clk" end="cpu.clk" />
  <connection kind="clock" version="20.1" start="clk_0.clk" end="timer_0.clk" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="seven_seg_right_0.clk" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="seven_seg_left_0.clk" />
  <connection kind="clock" version="20.1" start="clk_0.clk" end="switch_0.clk" />
  <connection kind="clock" version="20.1" start="clk_0.clk" end="button_0.clk" />
- <connection kind="clock" version="20.1" start="clk_0.clk" end="seven_seg_0.clk" />
- <connection kind="clock" version="20.1" start="clk_0.clk" end="seven_seg_1.clk" />
  <connection kind="clock" version="20.1" start="clk_0.clk" end="rom_0.clk1" />
  <connection kind="clock" version="20.1" start="clk_0.clk" end="ram_0.clk1" />
  <connection kind="interrupt" version="20.1" start="cpu.irq" end="timer_0.irq">
@@ -586,7 +623,12 @@
    kind="reset"
    version="20.1"
    start="clk_0.clk_reset"
-   end="button_0.reset" />
+   end="seven_seg_right_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="seven_seg_left_0.reset" />
  <connection
    kind="reset"
    version="20.1"
@@ -596,22 +638,17 @@
    kind="reset"
    version="20.1"
    start="clk_0.clk_reset"
-   end="seven_seg_0.reset" />
- <connection
-   kind="reset"
-   version="20.1"
-   start="clk_0.clk_reset"
-   end="seven_seg_1.reset" />
- <connection
-   kind="reset"
-   version="20.1"
-   start="clk_0.clk_reset"
-   end="ram_0.reset1" />
+   end="button_0.reset" />
  <connection
    kind="reset"
    version="20.1"
    start="clk_0.clk_reset"
    end="rom_0.reset1" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="ram_0.reset1" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

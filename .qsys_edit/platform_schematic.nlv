@@ -1,36 +1,8 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst platform.cpu -pg 1 -lvl 2 -y 250
-preplace inst platform.switch_mode -pg 1 -lvl 3 -y 890
-preplace inst platform.mili_0 -pg 1 -lvl 3 -y 390
-preplace inst platform.seg_0 -pg 1 -lvl 3 -y 690
-preplace inst platform.mili_1 -pg 1 -lvl 3 -y 490
-preplace inst platform.cpu.cpu -pg 1
-preplace inst platform.seg_1 -pg 1 -lvl 3 -y 790
-preplace inst platform -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst platform.timer_0 -pg 1 -lvl 3 -y 290
-preplace inst platform.button_start -pg 1 -lvl 3 -y 30
-preplace inst platform.rom_0 -pg 1 -lvl 3 -y 130
-preplace inst platform.min_0 -pg 1 -lvl 3 -y 590
-preplace inst platform.ram_0 -pg 1 -lvl 3 -y 210
-preplace inst platform.min_1 -pg 1 -lvl 3 -y 990
-preplace inst platform.cpu.reset_bridge -pg 1
-preplace inst platform.cpu.clock_bridge -pg 1
-preplace inst platform.clk_0 -pg 1 -lvl 1 -y 430
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)button_start.external_connection,(SLAVE)platform.start_external_connection) 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.mode_external_connection,(SLAVE)switch_mode.external_connection) 1 0 3 NJ 920 NJ 920 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)min_0.external_connection,(SLAVE)platform.min_0_external_connection) 1 0 3 NJ 620 NJ 620 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)clk_0.clk_in,(SLAVE)platform.clk) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)ram_0.s1,(SLAVE)min_0.s1,(SLAVE)min_1.s1,(SLAVE)seg_1.s1,(SLAVE)mili_1.s1,(SLAVE)seg_0.s1,(SLAVE)timer_0.s1,(SLAVE)switch_mode.s1,(MASTER)cpu.data_master,(SLAVE)mili_0.s1,(SLAVE)button_start.s1) 1 2 1 760
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.seg_0_external_connection,(SLAVE)seg_0.external_connection) 1 0 3 NJ 720 NJ 720 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)platform.reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.mili_1_external_connection,(SLAVE)mili_1.external_connection) 1 0 3 NJ 520 NJ 520 NJ
-preplace netloc POINT_TO_POINT<net_container>platform</net_container>(SLAVE)rom_0.s1,(MASTER)cpu.instruction_master) 1 2 1 700
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.min_1_external_connection,(SLAVE)min_1.external_connection) 1 0 3 NJ 1020 NJ 1020 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.mili_0_external_connection,(SLAVE)mili_0.external_connection) 1 0 3 NJ 420 NJ 420 NJ
-preplace netloc POINT_TO_POINT<net_container>platform</net_container>(MASTER)cpu.irq,(SLAVE)timer_0.irq) 1 2 1 N
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)cpu.reset,(SLAVE)button_start.reset,(SLAVE)switch_mode.reset,(SLAVE)rom_0.reset1,(SLAVE)ram_0.reset1,(MASTER)clk_0.clk_reset,(SLAVE)timer_0.reset,(SLAVE)min_0.reset,(SLAVE)mili_1.reset,(SLAVE)min_1.reset,(SLAVE)seg_1.reset,(SLAVE)mili_0.reset,(SLAVE)seg_0.reset) 1 1 2 400 1040 740
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)cpu.clk,(SLAVE)seg_0.clk,(SLAVE)timer_0.clk,(SLAVE)mili_1.clk,(SLAVE)min_1.clk,(SLAVE)switch_mode.clk,(SLAVE)rom_0.clk1,(SLAVE)button_start.clk,(SLAVE)mili_0.clk,(SLAVE)seg_1.clk,(SLAVE)min_0.clk,(SLAVE)ram_0.clk1,(MASTER)clk_0.clk) 1 1 2 380 940 720
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.seg_1_external_connection,(SLAVE)seg_1.external_connection) 1 0 3 NJ 820 NJ 820 NJ
-levelinfo -pg 1 0 170 950
-levelinfo -hier platform 180 210 460 790 940
+preplace inst unsaved.clk_0 -pg 1 -lvl 1 -y 30
+preplace inst unsaved -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)unsaved.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in,(SLAVE)unsaved.clk) 1 0 1 NJ
+levelinfo -pg 1 0 50 270
+levelinfo -hier unsaved 60 90 260
